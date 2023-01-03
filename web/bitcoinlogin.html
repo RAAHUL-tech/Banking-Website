@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Secure bank-Bitcoin Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+        <style>
+           *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+            body{
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                
+            }
+            .container{
+                max-width: 600px;
+                width: 100%;
+                background: #fff;
+                padding: 25px 30px;
+                border-radius: 5px;
+                box-shadow: 10px 10px 8px 10px #888888;
+            }
+            .container .title{
+                font-size: 25px;
+                font-weight: 500;
+            }
+            .container .title::before{
+                content: '';
+                position: absolute;
+                height: 3px;
+                width: 30px;
+               
+            }
+            .container form .user-details{
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0 12px 0;
+            }
+            form .user-details .input-box{
+                width: calc(100% / 2 - 20px);
+                margin-bottom: 15px;
+            }
+            .user-details .input-box .details{
+                font-weight: 500;
+                margin-bottom: 5px;
+                display: block;
+            }
+            .user-details .input-box input{
+                height: 30px;
+                width: 100%;
+                outline: none;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                padding-left: 15px;
+                font-size: 16px;
+                border-bottom-width: 2px;
+                transition: all 0.3s ease;
+            }
+            .user-details .input-box input:focus,
+            .user-details .input-box input:valid{
+                border-color: #9b59b6;
+            }
+            .container a{
+                text-decoration: none;
+                position: relative;
+                top: 20px;
+            }
+            form .button button{
+               
+                width: 150px;
+                height: 35px;
+            }  
+            .input-box.success input{
+                border-color: #09c372;
+            }
+            .input-box.error input{
+                border-color: #ff3860;
+            }
+            .input-box .error{
+                color: #ff3860;
+                font-size: 11px;
+                height: 13px;
+            } 
+        </style>
+        <script>
+           function validate()
+           {
+              var uname=document.getElementById("uname");
+              var pass=document.getElementById("pass");
+              var err1=document.getElementById("error1");
+              var err2=document.getElementById("error2");
+              var unameval=uname.value.trim();
+              var passval=pass.value.trim();
+              err1.innerHTML="";
+              err2.innerHTML="";
+              console.log(unameval);
+              console.log(passval);
+              var regEx=/^[a-z0-9]+$/i;
+               if(unameval === '' || unameval === null || unameval.length<8){
+                   err1.innerHTML="Username should be greater than 8 characters";
+                   return false;
+               }
+                else if(!regEx.test(unameval)){
+                   
+                       err1.innerHTML="Username should contain only letters and digits!";
+                       return false;
+                   }
+                   else if(passval ==='' || passval === null || passval.length<8){
+                   
+                       err2.innerHTML="Password is invalid";
+                       return false;
+                   }
+                   else{
+                       return true;
+                   }
+                   return true;
+               
+           }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+             <div class="title">Crypto-Login</div>
+             <form id="form" action="Cryptologin" method="post" autocomplete="off" onsubmit='return validate()'>
+                <div class="user-details">
+                   
+       <div class="input-box">
+        <span class="details">Username</span>
+       <input type="text" id="uname" name="uname">
+       <div class="error" id="error1"></div>
+       </div>
+       <div class="input-box">
+        <span class="details">Password</span>
+       <input type="password" id="pass" name="pass">
+       <div class="error" id="error2"></div>
+       </div>
+       <div class="button">
+        <button type="submit" id="btn">Submit</button>
+       </div>
+          <div id="forgot">
+          <a href="cryptocreate.html">Don't have a Crypto-account Create now</a>
+            </div>
+                </div>
+       </form>
+            
+        </div>
+    </body>
+</html>

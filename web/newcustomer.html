@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Secure bank-NEW CUSTOMER</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+            body{
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                
+            }
+            .container{
+                max-width: 800px;
+                width: 100%;
+                background: #fff;
+                padding: 25px 30px;
+                border-radius: 5px;
+                box-shadow: 10px 10px 8px 10px #888888;
+            }
+            .container .title{
+                font-size: 25px;
+                font-weight: 500;
+            }
+            .container .title::before{
+                content: '';
+                position: absolute;
+                height: 3px;
+                width: 30px;
+               
+            }
+            .container form .user-details{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin: 20px 0 12px 0;
+            }
+            form .user-details .input-box{
+                width: calc(100% / 2 - 20px);
+                margin-bottom: 15px;
+            }
+            .user-details .input-box .details{
+                font-weight: 500;
+                margin-bottom: 5px;
+                display: block;
+            }
+            .user-details .input-box input{
+                height: 30px;
+                width: 100%;
+                outline: none;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                padding-left: 15px;
+                font-size: 16px;
+                border-bottom-width: 2px;
+                transition: all 0.3s ease;
+            }
+            .user-details .input-box input:focus,
+            .user-details .input-box input:valid{
+                border-color: #9b59b6;
+            }
+            form .gender-details .gender-title{
+                position: relative;
+                right: 70px;
+                font-size: 20px;
+                font-weight: 500;
+            }
+            
+            form .button button{
+                position: relative;
+                top: 30px;
+                right: 380px;
+                left: 300px;
+                outline: none;
+                width: 150px;
+                height: 35px;
+            }
+            .input-box .error{
+                color: #ff3860;
+                font-size: 11px;
+                height: 13px;
+            } 
+        </style>  
+        <script type="text/javascript">
+            const setError=(element,message)=>{
+                const innerControl=element.parentElement;
+                const errorDisplay=inputControl.querySelector('.error');
+            }
+            function validate()
+            {
+                const firstname1=document.getElementById("firstname1");
+                const lastname1=document.getElementById("lastname1");
+                const dob1=document.getElementById("dob1");
+                const accno1=document.getElementById("accno1");
+                const acctype1=document.getElementById("acctype1");
+                const ifsc1=document.getElementById("ifsc1");
+                const branch1=document.getElementById("branch1");
+                const email1=document.getElementById("email1");
+                const mobile1=document.getElementById("mobile1");
+                const pass1=document.getElementById("pass1");
+                const cpass1=document.getElementById("cpass1");
+                var err1=document.getElementById("error1");
+                var err2=document.getElementById("error2");
+                var err3=document.getElementById("error3");
+                var err4=document.getElementById("error4");
+                var err5=document.getElementById("error5");
+                var err6=document.getElementById("error6");
+                var err7=document.getElementById("error7");
+                var err8=document.getElementById("error8");
+                var err9=document.getElementById("error9");
+                var err10=document.getElementById("error10");
+                var err11=document.getElementById("error11");
+                const value1=firstname1.value.trim();
+                const value2=lastname1.value.trim();
+                const value4=dob1.value.trim();
+                const value5=accno1.value.trim();
+                const value6=acctype1.value.trim();
+                const value7=ifsc1.value.trim();
+                const value8=branch1.value.trim();
+                const value9=email1.value.trim();
+                const value10=mobile1.value.trim();
+                const value11=pass1.value.trim();
+                const value12=cpass1.value.trim();
+                err1.innerHTML="";
+                err2.innerHTML="";
+                err3.innerHTML="";
+                err4.innerHTML="";
+                err5.innerHTML="";
+                err6.innerHTML="";
+                err7.innerHTML="";
+                err8.innerHTML="";
+                err9.innerHTML="";
+                err10.innerHTML="";
+                err11.innerHTML="";
+                if(value1 === '' || value1 === null){
+                   err1.innerHTML="First name cant be empty!";
+                   return false;
+               }
+               else if(value2 === '' || value2 === null){
+                   
+                       err2.innerHTML="Last name cant be empty!";
+                       return false;
+                   }
+                 else if(value4 === '' || value4 === null){
+                   
+                       err5.innerHTML="Please select DOB!";
+                       return false;
+                   }
+                else if(value5 === '' || value5 === null || value5.length!==10){
+                   
+                       err6.innerHTML="Account number is invalid!";
+                       return false;
+                   }
+                else if(value6 === '' || value6 === null || value6 ==="null"){
+                   
+                       err7.innerHTML="Account type not selected!";
+                       return false;
+                   }
+                else if(value7 === '' || value7 === null || value7.length!==10){
+                   
+                       err8.innerHTML="IFSC code is invalid!";
+                       return false;
+                   }
+                else if(value8 === '' || value8 === null || value8 ==="null"){
+                   
+                       err9.innerHTML="Branch not selected!";
+                       return false;
+                   }
+                else if(value9 === '' || value9 === null){
+                   
+                       err3.innerHTML="Enter email id!";
+                       return false;
+                   }
+                else if(value10 === '' || value10 === null || value10.length!==10){
+                   
+                       err4.innerHTML="Mobile number is invalid!";
+                       return false;
+                   }
+                else if(value11 === '' || value11 === null || value11.length<8){
+                   
+                       err10.innerHTML="Password is invalid!";
+                       return false;
+                   }
+               else if(value12 === '' || value12 === null || value12.length<8){
+                   
+                       err11.innerHTML="Password is invalid!";
+                       return false;
+                   }
+               else if(value11 !== value12){
+                   
+                       err10.innerHTML="Password does not match";
+                       err11.innerHTML="Password does not match";
+                       return false;
+                   }
+                   else{
+                       return true;
+                   }
+                   return true;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">New user Register</div>
+            <form action="Newuser" method="post" autocomplete="off" onsubmit="return validate()">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">First Name</span>
+                        <input type="text" id="firstname1" name="firstname" required>
+                        <div class="error" id="error1"></div>
+                </div>
+                   
+                    <div class="input-box">
+                        <span class="details">Last Name</span>
+                        <input type="text" id="lastname1" name="lastname" required>
+                        <div class="error" id="error2"></div>
+                </div>
+               
+                    <div class="input-box">
+                        <span class="details">Email id</span>
+                        <input type="email" id="email1" name="email" required>
+                        <div class="error" id="error3"></div>
+                </div>
+               
+                    <div class="input-box">
+                        <span class="details">Mobile</span>
+                        <input type="number" id="mobile1" name="mobile" required>
+                        <div class="error" id="error4"></div>
+                </div>
+                   
+                    <div class="input-box">
+                        <span class="details">DOB</span>
+                        <input type="date" id="dob1" name="dob" required>
+                        <div class="error" id="error5"></div>
+                </div>
+             
+                    <div class="input-box">
+                        <span class="details">Account No</span>
+                        <input type="text" id="accno1" name="accno" required>
+                        <div class="error" id="error6"></div>
+                </div>
+                 
+                    <div class="input-box">
+                        <span class="details">Account Type</span>
+                        <select id="acctype1" name="acctype">
+                                    <option value="null" selected>Not Selected</option>
+                            <option value="savings">Savings</option>
+                            <option value="credit">Credit</option>
+                            <option value="trading">Trading</option>
+                            
+                        </select>
+                        <div class="error" id="error7"></div>
+                </div>
+                
+                    <div class="input-box">
+                        <span class="details">IFSC code</span>
+                        <input type="number" id="ifsc1" name="ifsc" required>
+                        <div class="error" id="error8"></div>
+                </div>
+              
+                    <div class="input-box">
+                        <span class="details">Branch</span>
+                        <select id="branch1" name="branch">
+                            <option value="null" selected>Not Selected</option>
+                            <option value="pondy">Pondicherry</option>
+                            <option value="chennai">Chennai</option>
+                            <option value="karaikal">Karaikal</option>
+                        </select>
+                        <div class="error" id="error9"></div>
+                </div>
+               
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="password" id="pass1" name="pass" required>
+                        <div class="error" id="error10"></div>
+                </div>
+               
+                    <div class="input-box">
+                        <span class="details">Confirm Password</span>
+                        <input type="password" id="cpass1" name="pass2" required>
+                        <div class="error" id="error11"></div>
+                </div>
+                   <div class="gender-details">  
+                       <span class="gender-title">Gender</span>
+                       <div class="category">
+                           <label for="gender1">
+                               <input type="radio" id="gender1" name="gender" value="male" required>
+                               <label for="gender1">Male</label>
+                               
+                           </label>
+                           <label for="gender1">
+                               <input type="radio" id="gender1" name="gender" value="female" required>
+                               <label for="gender1">Female</label>
+                               
+                           </label>
+                           <label for="gender1">
+                               <input type="radio" id="gender1" name="gender" value="NULL" required>
+                               <label for="gender1">Prefer not to say</label>
+                               
+                           </label>
+                       </div>
+                   </div>
+                   <div class="button">
+                       <button type="submit">Register</button>
+                   </div>
+                    
+                    <!--<div id="firstname">
+                        <label for="firstname1">First name</label>
+                        <input type="text" id="firstname1" name="firstname" required>
+                    </div>
+                    <div id="lastname">
+                        <label for="lastname1">Last name</label>
+                        <input type="text" id="lastname1" name="lastname" required>
+                    </div>
+                    <div id="innergender">
+                        <fieldset>
+                            <legend>Gender</legend>
+                    <div id="male">
+                         <input type="radio" id="gender1" name="gender" value="male" required>
+                        <label for="gender1">Male</label>
+                    </div>
+                    <div id="female">
+                         <input type="radio" id="gender2" name="gender" value="female" required>
+                        <label for="gender2">Female</label>
+                    </div>
+                    <div id="nottosay">
+                         <input type="radio" id="gender3" name="gender" value="NULL" required>
+                        <label for="gender2">Prefer not to say</label>
+                    </div>
+                        </fieldset>
+                    </div>
+                    <div id="dob">
+                        <label for="dob1">Date of birth</label>
+                        <input type="date" id="dob1" name="dob" required>
+                    </div>
+                    <div id="accno">
+                        <label for="accno1">Account No</label>
+                        <input type="text" id="accno1" name="accno" required>
+                    </div>
+                    <div id="acctype">
+                        <label for="acctype1">Account Type</label>
+                        <select id="acctype1" name="acctype">
+                            <option value="savings">Savings</option>
+                            <option value="credit">Credit</option>
+                            <option value="trading">Trading</option>
+                        </select>
+                    </div>
+
+                    <div id="email">
+                        <label for="email1">Email id</label>
+                        <input type="email" id="email1" name="email" required>
+                    </div>
+                    <div id="pass">
+                        <label for="pass1">Password</label>
+                        <input type="password" id="pass1" name="pass" required>
+                    </div>
+                    <div id="cpass">
+                        <label for="cpass1">Confirm Password</label>
+                        <input type="password" id="cpass1" name="pass2" required>
+                    </div>
+                    <div id="btn">
+                        <button type="submit">Register</button>
+                    </div>  -->
+              </div>
+            </form>
+</div>
+        
+    </body>
+</html>
