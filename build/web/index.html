@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Secure bank-HOME</title>
+        
+        <style>
+            body{
+                margin: 0;
+                font-family: Arial,Helvetica,sans-serif;
+            }
+            #header
+            {
+                color:#ffffff;
+                height: 50px;
+                background: rgb(20%,40%,40%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #logo{
+                margin-right: 10px;
+                flex: 0.5;
+            }
+            #header nav form{
+                margin-left: 80px;
+                display: inline;
+                flex: 1;
+            }
+            #header nav form a{
+                text-decoration: none;
+                color: black;
+                padding: 5px;
+            }
+            #header nav form a:hover{
+                color: whitesmoke;
+            }
+            #container{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                height: 60vh;
+            }
+            
+            #content{
+                margin-top: 30px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+            #imgcontainer img{
+                width: 700px;
+                border-radius: 5px;
+                box-shadow: 10px 10px 8px 10px #888888;
+            }
+            #container{
+                display: flex;
+                flex-direction: column;
+            }
+            #container h1{
+                font-size: 60px;
+                font-weight: 800;
+                margin-bottom: 15px;color: hsl(233,26%,24%);
+                line-height: 1.1;
+            }
+            #container p{
+                color: hsl(233,8%,62%);
+                margin-bottom: 15px;
+                font-weight: 700;
+            }
+            #container2{
+                background-color: hsl(220,16%,96%);
+                margin-bottom: 30px;
+               
+            }
+            #class1{
+                padding-top: 10vh;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                padding-bottom: 10vh;
+            }
+            #class1 h1{
+                font-size: 35px;
+                font-weight: 800;
+                margin-bottom: 15px;
+                color: hsl(233,26%,24%);
+              
+            }
+            #class1 p{
+                color: hsl(233,8%,62%);
+                margin-bottom: 15px;
+                font-weight: 700;
+            }
+            #features{
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: space-around;
+                align-content: flex-start;
+            }
+            #featureitem1 img{
+                width: 130px;
+                margin-bottom: 10px;
+            }
+            #featureitem1 h1{
+                font-size: 25px;
+                font-weight: 800;
+                margin-bottom: 10px;
+                color: hsl(233,26%,24%);
+            }
+            #featureitem1 p{
+                color: hsl(233,8%,62%);
+               
+                font-weight: 700;
+            }
+            #featureitem2 img{
+                width: 130px;
+                margin-bottom: 10px;
+            }
+            #featureitem2 h1{
+                font-size: 25px;
+                font-weight: 800;
+                margin-bottom: 10px;
+                color: hsl(233,26%,24%);
+            }
+            #featureitem2 p{
+                color: hsl(233,8%,62%);
+               
+                font-weight: 700;
+            }
+            #featureitem3 img{
+                width: 130px;
+                margin-bottom: 10px;
+            }
+            #featureitem3 h1{
+                font-size: 25px;
+                font-weight: 800;
+                margin-bottom: 10px;
+                color: hsl(233,26%,24%);
+            }
+            #featureitem3 p{
+                color: hsl(233,8%,62%);
+               
+                font-weight: 700;
+            }
+            #featureitem4 img{
+                width: 130px;
+                margin-bottom: 10px;
+            }
+            #featureitem4 h1{
+                font-size: 25px;
+                font-weight: 800;
+                margin-bottom: 10px;
+                color: hsl(233,26%,24%);
+            }
+            #featureitem4 p{
+                color: hsl(233,8%,62%);
+               
+                font-weight: 700;
+            }
+            #footer{
+                background-color: hsl(233,26%,24%);
+                height: 30vh;
+                
+            }
+            #footercontainer{
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                color: white;
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+                padding: 2rem;
+            }
+            #socialcontainer{
+                margin-top: 3rem;
+            }
+            #socialcontainer img{
+                width: 20px;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+            #menucontainer a{
+                text-decoration: none;
+                color: white;
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
+            #menucontainer
+            {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            #menucontainer2 a{
+                text-decoration: none;
+                color: white;
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
+            #menucontainer2
+            {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            #marquee1{
+                color: red;
+            }
+            #marquee2{
+                color: green;
+            }
+            #copy{
+                text-align: center;
+            }
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    
+        <header>
+            <div id="header">
+                <div id="logo">Welcome to secure bank</div>
+            <nav>
+                <form>
+                    <a href="netbank.html" id="netbank">Net banking</a>
+                </form>
+                <form>
+                    <a href="bitcoinlogin.html" id="bitcoin">Bitcoin Transaction</a>
+                </form>
+                <form>
+                    <a href="newcustomer.html" id="newcustomer">New customer</a>
+                </form>
+                
+                <form>
+                    <a href="login.html" id="login">Login</a>
+                </form>
+                <form>
+                    <a href="contact.html" id="contactinfo">Contact info</a>
+                </form>
+            </nav>
+                </div>
+            
+                <marquee>
+                    <h3><span id="marquee1">Warning!! Don't share your OTP number and password to any other.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span><span id="marquee2">Now introducing bitcoin transactions through web!!</span></h3>
+                   
+                </marquee>
+            
+            <div id="content">
+            <div id="container">
+                <h1>Next generation <br/>secure bank<br/></h1>
+                <hr width="500" align="left">
+                <p>Take your money transactions online within seconds <br/>
+                    All the transactions are secured so don't worry<br/> Be cool!!
+            </p>
+            </div>
+            <div id='imgcontainer'>
+                <img src="resource/backgroundimg.jpg" alt="There is suppose to be an image">
+            </div>
+            </div>
+        </header>
+        <div id="container2">
+            <section id="class1">
+                <h1>Why choose Secure bank?</h1>
+                <p>Easy way to payments both online and offline.<br/>Also supports all types of UPI</p>
+            </section>
+            <section id="features">
+                <div id="featureitem1">
+                    <img src="resource/online.png" alt="online bank"/>
+                    <h1>Online Banking</h1>
+                    <p>Our modern web application<br/> helps you to do payment <br/>easily worldwide!</p>
+                </div>
+                <div id="featureitem2">
+                    <img src="resource/budget.png" alt="budget"/>
+                    <h1>Simple Budgeting</h1>
+                    <p>Print the e-transaction<br/> receipts and monthly <br/>statement easily!</p>
+                </div>
+                <div id="featureitem3">
+                    <img src="resource/transfer.png" alt="transfer"/>
+                    <h1>Fast Transfer</h1>
+                    <p>Our web application allows <br/>you to transfer payments<br/>to anather account securely!</p>
+                </div>
+                <div id="featureitem4">
+                    <img src="resource/manage.png" alt="online bank"/>
+                    <h1>Open API</h1>
+                    <p>Manage your savings,pensions,<br/>investment and much more <br/>in a faster way!</p>
+                </div>
+            </section>
+        </div>
+        <div id="container3">
+        <section id="class1">
+                <h1>Pay any type of e-cuurencies!!</h1>
+                <p>This website pays a new platform to pay digital currencies.Any digital currency like bitcoin, Ethereum, Ripple, Litecoin
+                <br/>can be payed to the payee by providing the unique bitcoin address.</p>
+            </section>
+        </div>
+        <footer id="footer">
+            <div id="footercontainer">
+                <div id="socialcontainer">
+                    <img src="resource/twitter.png" alt="Twitter" onclick="https://twitter.com/i/flow/login"/>
+                    <img src="resource/facebook.png" alt="Facebook" onclick="https://www.facebook.com/"/>
+                    <img src="resource/instagram.png" alt="Instagram" onclick="https://www.instagram.com/"/>
+                </div>
+               <div id="menucontainer">
+                   <a href="#">About us</a>
+                   <a href="contact.html">Contact us</a>
+                    <a href="#">Support</a>
+                </div>
+            <div id="menucontainer2">
+                    <a href="https://www.nseindia.com/">Trading info</a>
+                   <a href="https://www.moneycontrol.com/mutualfundindia/">Mutual funds</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </footer>
+        <div id="copy">&#169;&nbsp;&nbsp;Raahul Krishna</div>
+    </body>
+</html>
+
