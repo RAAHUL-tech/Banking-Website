@@ -1,0 +1,129 @@
+mysql> create database securebank;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use securebank;
+Database changed
+mysql> create table amount(accno varchar(10) primary key,amt int);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> describe amount;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| accno | varchar(10) | NO   | PRI | NULL    |       |
+| amt   | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.03 sec)
+
+mysql> create table blocks(id int primary key,hash varchar(520),data varchar(500),timestamp1 varchar(50),prevhash varchar(520));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe blocks;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | int          | NO   | PRI | NULL    |       |
+| hash       | varchar(520) | YES  |     | NULL    |       |
+| data       | varchar(500) | YES  |     | NULL    |       |
+| timestamp1 | varchar(50)  | YES  |     | NULL    |       |
+| prevhash   | varchar(520) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create table complaints(id int primary key AUTO_INCREMENT,accno varchar(10),type varchar(30),description varchar(200));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> describe complaints;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int          | NO   | PRI | NULL    | auto_increment |
+| accno       | varchar(10)  | YES  |     | NULL    |                |
+| type        | varchar(30)  | YES  |     | NULL    |                |
+| description | varchar(200) | YES  |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> create table cryptoacc(uname varchar(30) primary key,email varchar(520),password varchar(520));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe cryptoacc;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| uname    | varchar(30)  | NO   | PRI | NULL    |       |
+| email    | varchar(520) | YES  |     | NULL    |       |
+| password | varchar(520) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> create table cryptopay(addr1 varchar(520),addr2 varchar(520),type varchar(15),amt varchar(10),des varchar(100));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> describe cryptopay;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| addr1 | varchar(520) | YES  |     | NULL    |       |
+| addr2 | varchar(520) | YES  |     | NULL    |       |
+| type  | varchar(15)  | YES  |     | NULL    |       |
+| amt   | varchar(10)  | YES  |     | NULL    |       |
+| des   | varchar(100) | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create table customer(accno varchar(10) primary key,first_name varchar(30),last_name varchar(30),acctype varchar(15),ifsc varchar(10),branch varchar(50),email varchar(30),dob varchar(10),gender varchar(10),mobile varchar(13),salt varchar(100),password varchar(520));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe customer;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| accno      | varchar(10)  | NO   | PRI | NULL    |       |
+| first_name | varchar(30)  | YES  |     | NULL    |       |
+| last_name  | varchar(30)  | YES  |     | NULL    |       |
+| acctype    | varchar(15)  | YES  |     | NULL    |       |
+| ifsc       | varchar(10)  | YES  |     | NULL    |       |
+| branch     | varchar(50)  | YES  |     | NULL    |       |
+| email      | varchar(30)  | YES  |     | NULL    |       |
+| dob        | varchar(10)  | YES  |     | NULL    |       |
+| gender     | varchar(10)  | YES  |     | NULL    |       |
+| mobile     | varchar(13)  | YES  |     | NULL    |       |
+| salt       | varchar(100) | YES  |     | NULL    |       |
+| password   | varchar(520) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+12 rows in set (0.00 sec)
+
+mysql> create table transactions(id varchar(70),accnofrom varchar(10),accnoto varchar(10),mode varchar(10),type varchar(25),bankname varchar(50),amt int,des varchar(100),date varchar(15),time varchar(20),status varchar(15));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> describe transactions;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| id        | varchar(70)  | YES  |     | NULL    |       |
+| accnofrom | varchar(10)  | YES  |     | NULL    |       |
+| accnoto   | varchar(10)  | YES  |     | NULL    |       |
+| mode      | varchar(10)  | YES  |     | NULL    |       |
+| type      | varchar(25)  | YES  |     | NULL    |       |
+| bankname  | varchar(50)  | YES  |     | NULL    |       |
+| amt       | int          | YES  |     | NULL    |       |
+| des       | varchar(100) | YES  |     | NULL    |       |
+| date      | varchar(15)  | YES  |     | NULL    |       |
+| time      | varchar(20)  | YES  |     | NULL    |       |
+| status    | varchar(15)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)
+
+mysql> create table feedback(id int primary key AUTO_INCREMENT,email varchar(30),description varchar(200));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> describe feedback;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int          | NO   | PRI | NULL    | auto_increment |
+| email       | varchar(30)  | YES  |     | NULL    |                |
+| description | varchar(200) | YES  |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+3 rows in set (0.02 sec)
